@@ -1,0 +1,49 @@
+---
+title: "Resumo Profissional"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    horizontal_layout: fill
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", plot.width = 12)
+
+options(encoding = 'UTF-8')
+
+source("x.R", encoding = "UTF-8")
+
+```
+
+Row{}
+-----------------------------------------------------------------------
+
+### Oi, eu sou o Hektor!
+
+Olá! Meu nome é Hektor, sou um Estatístico e Cientista de Dados de Curitiba. Abaixo, você pode ver minha trajetória profissinal e o resumo de algumas das minhas principais habilidades. Para mais detalhes, é só passar o mouse por cima dos pontos nas linhas. Ao longo de todos esses anos, eu fui conhecendo coisas novas e muitas delas me fascinaram e o fazem até hoje. Eu sempre gostei muito de aprender e com a minha entrada na Universidade, isso só aumentou. Eu caí de paraquedas no curso de Estatística, e foi uma das melhores experiências da minha vida. Nele, eu pude conhecer um mundo incrível, onde não parecia ter escassez de coisas a se observar, entender, experimentar e descobrir. É uma das coisas que mais me motiva, e o que torna tudo cada vez mais interessante. 
+
+Row {}
+-----------------------------------------------------------------------
+
+### Linha do Tempo
+
+```{r}
+
+ggplotly(g, tooltip = "text") |> 
+  layout(xaxis = list(fixedrange = TRUE), yaxis = list(fixedrange = TRUE)) |> 
+  config(displayModeBar = FALSE)
+
+```
+
+
+### Principais Habilidades
+
+```{r}
+
+ggplotly(h, tooltip = "text") |>
+  layout(xaxis = list(fixedrange = TRUE), yaxis = list(fixedrange = TRUE)) |> 
+  config(displayModeBar = FALSE)
+
+```

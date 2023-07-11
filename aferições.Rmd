@@ -1,0 +1,68 @@
+---
+title: "Aferições Pandora"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    horizontal_layout: fill
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+
+options(encoding = 'UTF-8')
+
+source("global.R", encoding = "UTF-8")
+
+```
+
+Row {}
+-----------------------------------------------------------------------
+
+### Evolução das aferições
+
+```{r}
+
+plotly_ts
+
+```
+
+Row {}
+-----------------------------------------------------------------------
+
+### Médias móveis
+
+```{r}
+
+mm
+
+```
+
+### Visão geral
+
+```{r}
+
+bp_geral
+
+t1 |> 
+  mutate_if(is.numeric, ~number(., .001)) |> 
+  kbl() |> 
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+  row_spec(0, bold = T, color = "white", background = "#34eba8")
+
+```
+
+### Visão por aferição
+
+```{r}
+
+bp_afericao
+
+t2 |> 
+  mutate_if(is.numeric, ~number(., .001)) |> 
+  kbl() |> 
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |> 
+  row_spec(0, bold = T, color = "white", background = "#34eba8")
+
+```
+
